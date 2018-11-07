@@ -211,4 +211,12 @@ class CrossToSquareStepView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : CrossToSquareStepView {
+            val view : CrossToSquareStepView = CrossToSquareStepView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
