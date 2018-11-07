@@ -40,7 +40,7 @@ fun Canvas.drawCTSNode(i : Int, scale : Float, paint : Paint) {
     save()
     translate(gap * (i + 1), h / 2)
     for (j in 0..(lines - 1)) {
-        val sc : Float = sc1.divideScale(i, lines)
+        val sc : Float = sc1.divideScale(j, lines)
         save()
         rotate(j * 90f)
         val x : Float = (size/2) * (2 - sc2)
