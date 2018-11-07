@@ -186,4 +186,27 @@ class CrossToSquareStepView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : CrossToSquareStepView) {
+
+        private val animator : Animator = Animator(view)
+
+        private val cts : CrossToSquareStep = CrossToSquareStep(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(Color.parseColor("#BDBDBD"))
+            cts.draw(canvas, paint)
+            animator.animate {
+                cts.update {i, scl ->
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            cts.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
